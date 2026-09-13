@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Portfolio</title>
+  <meta name="description" content="Mechanical design engineer portfolio — medical device R&D projects, skills, resume, and contact.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark">ME</span><span id="brand-name"></span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html?replay=1">Play intro</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-resume" data-resume href="#" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero grid-bg">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="mono" id="hero-title"></div>
+          <h1 id="hero-name"></h1>
+          <div class="subtitle" id="hero-subtitle"></div>
+          <p class="tagline" id="hero-tagline"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn" data-resume href="#" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg>
+              Download resume
+            </a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="At a glance">
+          <span class="dim top">AT A GLANCE</span>
+          <ul>
+            <li><span class="k">Focus</span><span id="hero-focus"></span></li>
+            <li><span class="k">Education</span><span id="hero-edu"></span></li>
+            <li><span class="k">Based in</span><span id="hero-location"></span></li>
+          </ul>
+          <p class="bio" id="hero-bio"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><span class="num">01</span><h2>Selected Projects</h2></div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head"><span class="num">02</span><h2>Skills</h2></div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head"><span class="num">03</span><h2>Experience &amp; Education</h2></div>
+        <div class="two-col">
+          <div>
+            <h3 class="mono" style="margin-bottom:16px">Experience</h3>
+            <div class="timeline" id="experience-list"></div>
+          </div>
+          <div>
+            <h3 class="mono" style="margin-bottom:16px">Education</h3>
+            <div class="timeline" id="education-list"></div>
+            <div id="extras-wrap" hidden>
+              <h3 class="mono" style="margin:8px 0 12px">Certifications &amp; Awards</h3>
+              <ul class="extras" id="extras-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="wrap">
+        <div class="section-head"><span class="num">04</span><h2>Resume</h2></div>
+        <div class="resume-actions">
+          <a class="btn btn-primary" data-resume href="#" download>Download PDF</a>
+          <a class="btn" data-resume href="#" target="_blank" rel="noopener">Open in new tab</a>
+        </div>
+        <div class="resume-frame">
+          <iframe id="resume-iframe" title="Resume PDF" loading="lazy"></iframe>
+          <div class="resume-mobile-note">
+            <p>Tap <strong>Open in new tab</strong> above to view the resume on this device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head"><span class="num">05</span><h2>Contact</h2></div>
+        <p style="color:var(--ink-2);max-width:60ch">Open to mechanical design, R&amp;D, and product development roles in medical devices. The fastest way to reach me is email.</p>
+        <div class="contact-grid" id="contact-grid"></div>
+        <!--
+          OPTIONAL CONTACT FORM (no backend needed): sign up at https://formspree.io, create a form,
+          then uncomment this block and replace YOUR_FORM_ID.
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin-top:24px;display:grid;gap:10px;max-width:520px">
+          <input name="name" placeholder="Your name" required style="padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg-elev);color:var(--ink)">
+          <input name="email" type="email" placeholder="Your email" required style="padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg-elev);color:var(--ink)">
+          <textarea name="message" rows="5" placeholder="Message" required style="padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg-elev);color:var(--ink)"></textarea>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> <span id="footer-name"></span></span>
+      <span class="mono">Built with plain HTML · CSS · JS</span>
+    </div>
+  </footer>
+
+  <script src="js/content.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

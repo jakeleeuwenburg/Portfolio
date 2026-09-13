@@ -1,0 +1,97 @@
+/* =====================================================================
+   landing.css — landing shell, HUD, touch controls, fallback
+   ===================================================================== */
+
+body.landing { overflow: hidden; height: 100dvh; display: flex; flex-direction: column; background: var(--bg-sunk); }
+body.landing.no-select { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+
+.landing-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left));
+  pointer-events: none;
+}
+.landing-bar > * { pointer-events: auto; }
+.landing-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); text-shadow: 0 1px 0 var(--bg); }
+.brand-mark { width: 28px; height: 28px; border-radius: 7px; background: var(--accent); display: grid; place-items: center; color: #fff; font-family: var(--font-mono); font-size: 13px; }
+.skip-btn { box-shadow: var(--shadow); white-space: nowrap; }
+@media (max-width: 480px) { .landing-brand span:last-child { display: none; } .skip-btn { padding: 10px 14px; font-size: 0.9rem; } }
+
+.intro-root { flex: 1; position: relative; min-height: 0; }
+.intro-root canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+.intro-fallback { flex: 1; display: grid; place-items: center; text-align: center; padding: var(--gutter); }
+.intro-fallback h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 8px; }
+.intro-fallback p { margin-bottom: 24px; }
+
+/* ---------- Game HUD (DOM overlay on the canvas) ---------- */
+.hud { position: absolute; inset: 0; pointer-events: none; }
+.hud > * { pointer-events: auto; }
+
+.hud-progress {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  top: max(64px, calc(env(safe-area-inset-top) + 58px));
+  width: min(320px, 60vw); height: 6px; border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 15%, transparent); overflow: hidden; pointer-events: none;
+}
+.hud-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.15s linear; }
+.hud-progress-label {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  top: max(74px, calc(env(safe-area-inset-top) + 68px));
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); pointer-events: none;
+}
+
+/* Project card that slides in near an obstacle */
+.hud-card {
+  position: absolute; left: 50%; bottom: max(96px, calc(env(safe-area-inset-bottom) + 96px));
+  transform: translate(-50%, 20px); opacity: 0;
+  width: min(440px, calc(100vw - 32px));
+  background: var(--bg-elev); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+  padding: 14px 16px; display: flex; gap: 12px; align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.hud-card.show { transform: translate(-50%, 0); opacity: 1; }
+.hud-card .ic { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); display: grid; place-items: center; }
+.hud-card .ic svg { width: 34px; height: 34px; }
+.hud-card .txt { min-width: 0; flex: 1; }
+.hud-card .txt h4 { font-size: 1rem; margin-bottom: 2px; }
+.hud-card .txt p { font-size: 0.85rem; color: var(--ink-2); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.hud-card .txt .hint { font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-ink); margin-top: 4px; }
+.hud-card button { flex: 0 0 auto; }
+@media (max-width: 520px) { .hud-card { bottom: max(120px, calc(env(safe-area-inset-bottom) + 120px)); } .hud-card .ic { display: none; } }
+.can-hover .hud-card button.mobile-only { display: none; }
+
+/* Touch controls (only on coarse pointers) */
+.touch-controls {
+  position: absolute; left: 0; right: 0; bottom: 0; display: none;
+  justify-content: space-between; align-items: flex-end;
+  padding: 0 max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+}
+.touch-controls .pad { display: flex; gap: 10px; }
+.touch-btn {
+  width: 66px; height: 66px; border-radius: 50%; border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-elev) 80%, transparent); color: var(--ink);
+  font-size: 26px; display: grid; place-items: center; box-shadow: var(--shadow);
+  touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.touch-btn.jump { width: 84px; height: 84px; background: var(--accent); color: #fff; border-color: var(--accent); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+.touch-btn:active, .touch-btn.down { transform: scale(0.94); filter: brightness(1.1); }
+.is-touch .touch-controls { display: flex; }
+
+/* Start / end overlays */
+.hud-msg {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+  background: color-mix(in srgb, var(--bg-sunk) 55%, transparent); backdrop-filter: blur(2px);
+  padding: var(--gutter); transition: opacity 0.3s ease;
+}
+.hud-msg.hide { opacity: 0; pointer-events: none; }
+.hud-msg .box { background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: clamp(20px, 5vw, 36px); max-width: 520px; }
+.hud-msg h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); margin-bottom: 4px; letter-spacing: -0.02em; }
+.hud-msg .sub { color: var(--ink-2); margin-bottom: 18px; }
+.hud-msg .keys { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; margin: 14px 0 20px; color: var(--ink-2); font-size: 0.9rem; }
+.hud-msg kbd { font-family: var(--font-mono); font-size: 0.75rem; padding: 3px 7px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; background: var(--bg-sunk); color: var(--ink); }
+.hud-msg .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-card, .hud-msg, .hud-progress i { transition: none; }
+}

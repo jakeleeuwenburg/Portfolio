@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Welcome</title>
+  <meta name="description" content="Interactive intro to a mechanical design engineer's portfolio. Skip straight to the portfolio any time.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="landing">
+  <a class="skip-link" href="portfolio.html">Skip to portfolio</a>
+
+  <!-- Persistent skip control: lives OUTSIDE the intro module so it always works -->
+  <header class="landing-bar">
+    <div class="landing-brand"><span class="brand-mark">ME</span><span id="bar-name"></span></div>
+    <a class="btn btn-primary skip-btn" id="skip-btn" href="portfolio.html">
+      Skip intro <span aria-hidden="true">→</span> Portfolio
+    </a>
+  </header>
+
+  <!-- The active intro module renders into this container -->
+  <main id="intro-root" class="intro-root" aria-label="Interactive intro"></main>
+
+  <!-- Fallback shown if the intro fails to load (bad config, old browser, etc.) -->
+  <div id="intro-fallback" class="intro-fallback" hidden>
+    <div>
+      <h1 id="fb-name"></h1>
+      <p id="fb-title" class="mono"></p>
+      <a class="btn btn-primary" href="portfolio.html">Go to portfolio →</a>
+    </div>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/intro-config.js"></script>
+  <script src="js/intro-loader.js"></script>
+</body>
+</html>
