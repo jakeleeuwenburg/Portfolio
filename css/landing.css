@@ -58,7 +58,26 @@ body.landing.no-select { user-select: none; -webkit-user-select: none; -webkit-t
 .hud-card .txt p { font-size: 0.85rem; color: var(--ink-2); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .hud-card .txt .hint { font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-ink); margin-top: 4px; }
 .hud-card button { flex: 0 0 auto; }
-@media (max-width: 520px) { .hud-card { bottom: max(120px, calc(env(safe-area-inset-bottom) + 120px)); } .hud-card .ic { display: none; } }
+@media (max-width: 520px) { .hud-card .ic { display: none; } }
+/* Touch devices: the playing field sits low (above the buttons), so park the card in the empty
+   sky just under the progress bar instead of over the character. */
+.is-touch .hud-card {
+  bottom: auto;
+  top: calc(env(safe-area-inset-top, 0px) + 100px);
+  transform: translate(-50%, -12px);
+}
+.is-touch .hud-card.show { transform: translate(-50%, 0); }
+/* Landscape phones: not much sky, so tuck a compact card in the top-right corner. */
+@media (max-height: 520px) {
+  .is-touch .hud-card {
+    left: auto; right: max(12px, env(safe-area-inset-right)); top: calc(env(safe-area-inset-top, 0px) + 92px);
+    width: min(300px, 46vw); padding: 10px 12px; transform: translate(0, -12px);
+  }
+  .is-touch .hud-card.show { transform: none; }
+  .is-touch .hud-card .txt h4 { font-size: 0.9rem; }
+  .is-touch .hud-card .txt p { display: none; }
+  .is-touch .hud-card .ic { display: none; }
+}
 .can-hover .hud-card button.mobile-only { display: none; }
 
 /* Touch controls (only on coarse pointers) */
