@@ -12,11 +12,9 @@ window.CONTENT = {
     "I design and verify medical device hardware — from concept and DFM through bench testing, " +
     "design controls, and first-in-human use.",
   bio:
-    "R&D engineer at Innovative Drive Corporation, where I led mechanical design of a novel intravascular " +
-    "lithotripsy (IVL) device from concept through design verification and first-in-human cases. " +
-    "Previously a quality and manufacturing engineer at Inspire Products, qualifying processes and " +
-    "building fixtures for medical device components. Cal Poly SLO mechanical engineering grad who " +
-    "likes building test rigs, writing simulation tools, and closing the loop between data and design.",
+    "I build medical devices. At Innovative Drive I took a new intravascular lithotripsy device from " +
+    "concept to first-in-human. Before that I qualified processes and built fixtures at Inspire Products. " +
+    "I like test rigs, quick simulations, and designs that survive contact with manufacturing.",
   location: "Reno, NV",
   resumeUrl: "assets/Jake-Leeuwenburg-Resume.pdf",
 
@@ -39,16 +37,16 @@ window.CONTENT = {
       id: "ivl-device",
       icon: "catheter",
       title: "Intravascular Lithotripsy (IVL) Device",
-      role: "Lead Mechanical Design · Innovative Drive Corporation",
+      role: "Mechanical Design · Innovative Drive Corporation",
       period: "2025 – Present",
-      blurb: "Led mechanical design of a novel IVL device from concept through design verification and first-in-human cases.",
+      blurb: "Developed the mechanical design of a novel IVL device from concept through verification and first-in-human cases.",
       summary:
-        "Owned the mechanical design of a new intravascular lithotripsy device, taking it from early concept " +
+        "Developed the mechanical design of a new intravascular lithotripsy device, taking it from early concept " +
         "through design verification, successful first-in-human cases, and the verification data package " +
         "for the FDA IDE submission.",
       problem:
-        "A novel device concept needed to become a manufacturable, verified design under FDA deadlines, " +
-        "with mechanical, electrical, software, quality, clinical, and regulatory teams all depending on it.",
+        "A novel device concept needed to become a manufacturable, verified design on tight customer " +
+        "deadlines, with electrical, software, quality, clinical, and regulatory teams all depending on it.",
       approach:
         "Designed injection-molded and machined components and drove DFM iterations with an international " +
         "molder. Integrated Hall effect sensors and magnets, IR optical sensors, and a fluid pressure sensor. " +
@@ -190,7 +188,7 @@ window.CONTENT = {
       period: "Jul 2025 – Present",
       location: "Reno, NV",
       bullets: [
-        "Led mechanical design of a novel intravascular lithotripsy (IVL) device from concept through design verification.",
+        "Developed the mechanical design of a novel intravascular lithotripsy (IVL) device from concept through verification.",
         "Advanced the device to successful first-in-human cases and delivered verification data for the FDA IDE submission.",
         "Designed injection-molded and machined components; drove DFM iterations with an international injection molder.",
         "Built benchtop test models of clinical and worst-case use conditions, generating data that drove design decisions.",
