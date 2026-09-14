@@ -15,6 +15,11 @@
     bracket: '<path d="M26 22v56h48"/><path d="M26 22h20v14H40v28h34"/><circle cx="34" cy="30" r="3"/><circle cx="66" cy="70" r="3"/><path d="M40 36l34 34"/>',
     gear: '<circle cx="50" cy="50" r="14"/><circle cx="50" cy="50" r="6"/><path d="M50 20v10M50 70v10M20 50h10M70 50h10M29 29l7 7M64 64l7 7M71 29l-7 7M36 64l-7 7"/>',
     cad: '<path d="M30 70V40l20-12 20 12v30l-20 12z"/><path d="M30 40l20 12 20-12M50 52v30"/><path d="M20 80h60" stroke-dasharray="4 3"/>',
+    catheter: '<path d="M14 78c14 0 14-24 28-24s14 20 28 20 12-30 20-42"/><circle cx="90" cy="30" r="5"/><path d="M78 48l12-18"/>',
+    hammer: '<path d="M26 74L58 42"/><path d="M50 30l20-10 14 14-10 20z"/><path d="M22 84h16"/><circle cx="24" cy="76" r="6"/>',
+    wave: '<path d="M12 50c8-30 16-30 24 0s16 30 24 0 16-30 24 0"/><path d="M12 76h76" stroke-dasharray="4 4"/><path d="M12 24h76" stroke-dasharray="4 4"/>',
+    chart: '<path d="M18 82h66"/><path d="M18 82V22"/><rect x="28" y="52" width="10" height="30"/><rect x="46" y="38" width="10" height="44"/><rect x="64" y="58" width="10" height="24"/><path d="M28 34l18-8 18 12 16-18"/>',
+    fixture: '<rect x="18" y="62" width="64" height="12"/><path d="M30 62V40h40v22"/><path d="M26 40h48"/><circle cx="50" cy="28" r="8"/><path d="M50 36v4"/><path d="M36 74v10M64 74v10"/>',
     chip: '<rect x="30" y="30" width="40" height="40" rx="4"/><rect x="42" y="42" width="16" height="16"/><path d="M40 30V20M50 30V20M60 30V20M40 80V70M50 80V70M60 80V70M30 40H20M30 50H20M30 60H20M80 40H70M80 50H70M80 60H70"/>',
   };
   window.PROJECT_GLYPHS = GLYPHS;
