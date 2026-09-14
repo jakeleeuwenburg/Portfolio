@@ -99,27 +99,6 @@ window.CONTENT = {
       links: [{ label: "Open beatlete.com", url: "https://beatlete.com" }],
     },
     {
-      id: "nitinol-fixtures",
-      icon: "fixture",
-      title: "Nitinol Shape-Setting Fixtures",
-      role: "Quality & Manufacturing Engineer · Inspire Products",
-      period: "2024 – 2025",
-      blurb: "Redesigned shape-setting fixtures that cut heat-cycle time 56%, changeover 51%, and raised yield 29%.",
-      summary:
-        "Designed new nitinol shape-setting fixtures for medical device components and qualified the " +
-        "updated process, delivering large gains in cycle time, changeover, and yield.",
-      problem:
-        "The existing shape-setting process was slow to heat-cycle, slow to change over between parts, " +
-        "and produced too many out-of-spec components.",
-      approach:
-        "Redesigned the fixtures for faster thermal response and quick changeover, then authored and " +
-        "executed OQ/PQ protocols to qualify the process under ISO 13485, backed by SPC and Cp/Cpk studies.",
-      result: "Heat-cycle time reduced 56%, changeover time reduced 51%, and yield improved 29%.",
-      tags: ["Fixture Design", "Nitinol", "Process Qualification", "OQ/PQ", "SPC / Cpk", "ISO 13485"],
-      image: "",
-      links: [],
-    },
-    {
       id: "hammer-simulator",
       icon: "hammer",
       title: "Cam-Driven Hammer & Die Spring Simulator",
