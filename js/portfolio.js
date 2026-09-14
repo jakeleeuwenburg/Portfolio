@@ -108,8 +108,8 @@
   const cards = [];
   const k = C.contact || {};
   if (k.email) cards.push({ href: `mailto:${k.email}`, ic: icons.mail, lbl: "Email", val: k.email });
-  if (k.linkedin) cards.push({ href: k.linkedin, ic: icons.linkedin, lbl: "LinkedIn", val: k.linkedin.replace(/^https?:\/\/(www\.)?/, ""), ext: true });
-  if (k.github) cards.push({ href: k.github, ic: icons.github, lbl: "GitHub", val: k.github.replace(/^https?:\/\/(www\.)?/, ""), ext: true });
+  if (k.linkedin) cards.push({ href: k.linkedin, ic: icons.linkedin, lbl: "LinkedIn", val: k.linkedin.replace(/^https?:\/\/(www\.)?linkedin\.com\/in\//, "").replace(/\/$/, ""), ext: true });
+  if (k.github) cards.push({ href: k.github, ic: icons.github, lbl: "GitHub", val: k.github.replace(/^https?:\/\/(www\.)?github\.com\//, "").replace(/\/$/, ""), ext: true });
   if (k.phone) cards.push({ href: `tel:${k.phone.replace(/[^+\d]/g, "")}`, ic: icons.phone, lbl: "Phone", val: k.phone });
   if (C.location) cards.push({ href: null, ic: icons.pin, lbl: "Location", val: C.location });
   cards.forEach((c) => {
@@ -119,7 +119,6 @@
     a.innerHTML = `<span class="ic">${c.ic}</span><span><span class="lbl">${esc(c.lbl)}</span><span class="val">${esc(c.val)}</span></span>`;
     cg.appendChild(a);
   });
-  $("#year").textContent = new Date().getFullYear();
   $("#footer-name").textContent = C.name;
 
   /* ---------- Deep link from the game: #project-<id> ---------- */
