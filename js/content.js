@@ -30,7 +30,12 @@ window.CONTENT = {
      id:    short unique slug (used for #project-<id> links)
      icon:  one of "catheter", "gear", "hammer", "wave", "chart", "fixture", "cad", "chip",
             "stapler", "pump", "bone", "rig", "bracket"
-     image: path to an image (e.g. "assets/img/ivl.jpg"), or "" for an auto placeholder
+     image: card cover image, or "" to use the first gallery image / an auto placeholder
+     model: path to a .step/.stp file (e.g. "assets/models/ivl.step") -> interactive 3D viewer
+            in the project popup. Leave out or "" if there is no model.
+     images: screenshots shown as a gallery in the popup. Either plain paths or
+             { src: "assets/img/x.png", caption: "What this shows" }. Leave [] if none.
+     A project can have both a model and images (they appear as two tabs).
   */
   projects: [
     {
@@ -62,6 +67,36 @@ window.CONTENT = {
       tags: ["SolidWorks", "Injection Molding", "DFM/DFA", "Design Controls", "ISO 14971", "DFMEA/PFMEA", "Sensor Integration", "FDA IDE"],
       image: "",
       links: [],
+    },
+    {
+      id: "beatlete",
+      icon: "beat",
+      title: "BeatLete — Music × Workout Year in Review",
+      role: "Founder · Full-stack web app",
+      period: "2026",
+      blurb: "Live web app that matches every Spotify play to every Strava workout and turns the year into shareable story cards.",
+      summary:
+        "A side project outside mechanical engineering: a production web app at beatlete.com that connects " +
+        "Spotify, Strava, and Apple Music, lines up each song with the workout it was played during, and " +
+        "generates Instagram-style story cards for the year.",
+      problem:
+        "Spotify Wrapped knows what you listened to and Strava knows how you trained, but nothing connects " +
+        "the two. I wanted the songs that got me up the hill.",
+      approach:
+        "Built the whole stack: Node/TypeScript API with SQLite, React + Vite client, OAuth links to Spotify " +
+        "and Strava, background sync jobs with rate budgets, timestamp-overlap matching of plays to workouts " +
+        "with heart rate averaged over the exact overlap, 1080×1920 story-card rendering, sharing to " +
+        "Instagram/Strava/X, admin tools, backups, and a Playwright end-to-end test suite in CI.",
+      result:
+        "Deployed on Railway with auto-deploys from GitHub, working on desktop and phone, with a one-click " +
+        "demo mode so anyone can explore it before connecting an account.",
+      tags: ["TypeScript", "Node.js", "React", "SQLite", "OAuth", "Spotify & Strava APIs", "Playwright", "Railway"],
+      image: "",
+      images: [
+        { src: "assets/img/beatlete-home.png", caption: "BeatLete landing page at beatlete.com" },
+        { src: "assets/img/beatlete-mobile.png", caption: "Phone layout with the story-card player" },
+      ],
+      links: [{ label: "Open beatlete.com", url: "https://beatlete.com" }],
     },
     {
       id: "nitinol-fixtures",
@@ -177,7 +212,8 @@ window.CONTENT = {
     { group: "Quality & Regulatory", items: ["Design Controls (DHF/DMR)", "ISO 13485 / 9001", "ISO 14971", "DFMEA / PFMEA", "V&V", "OQ / PQ", "CAPA", "SPC / Cpk", "21 CFR 820"] },
     { group: "Testing & Instrumentation", items: ["Benchtop Test Models", "Pressure Transducers", "Hall Effect & IR Sensors", "Oscilloscopes", "OMM", "IEC 60601"] },
     { group: "Materials & Processes", items: ["Nitinol Shape Setting", "Heat Staking", "Soldering", "Plastic & Metal Component Specification"] },
-    { group: "Programming & Tools", items: ["Python (pandas, SciPy)", "JavaScript", "Three.js", "Arduino", "AI-assisted development (Claude Code)"] },
+    { group: "Programming & Tools", items: ["Python (pandas, SciPy)", "JavaScript / TypeScript", "Three.js", "Arduino", "AI-assisted development (Claude Code)"] },
+    { group: "Web & Software", items: ["Node.js / Express", "React + Vite", "SQLite", "OAuth integrations", "Playwright testing", "CI/CD (GitHub Actions, Railway)"] },
   ],
 
   /* ---------- EXPERIENCE ---------- */

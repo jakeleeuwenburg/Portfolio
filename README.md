@@ -21,6 +21,8 @@ assets/img/         Put project images here and reference them in content.js.
 Everything lives in `js/content.js`. Search for `PLACEHOLDER` and `REPLACE_ME`.
 
 - **Add a project:** copy one object in the `projects` array. `id` must be unique (it becomes the `#project-<id>` link). `icon` picks the in-game glyph (`stapler`, `pump`, `bone`, `rig`, `bracket`, `gear`, `cad`, `chip`). Set `image` to e.g. `"assets/img/my-project.jpg"` (16:9 works best) or leave `""` for the auto placeholder.
+- **3D models:** put a `.step`/`.stp` file in `assets/models/` and set `model: "assets/models/part.step"` on the project. The popup then shows an interactive viewer (drag to rotate, scroll to zoom, right-drag to pan) plus a Download STEP button. Parsing happens in the visitor's browser via OpenCascade compiled to WebAssembly (`assets/libs/`), so keep files reasonably small: a few MB loads in a second or two, 50 MB will feel slow on a phone. Export a simplified/defeatured version from SolidWorks if needed.
+- **Screenshots:** set `images: [{ src: "assets/img/x.png", caption: "…" }, …]` on the project. The popup shows a gallery with arrows and thumbnails. The first image is also used as the card cover unless `image` is set. A project can have both a model and images (two tabs).
 - **Order matters:** projects appear left-to-right in the game and top-to-bottom in the portfolio in array order. Put your strongest first.
 - **Resume:** drop your PDF at `assets/resume.pdf`. Both the download buttons and the embedded viewer read `resumeUrl`.
 - **Contact:** fill `contact.email` and `contact.linkedin`. Leave `github`/`phone` as `""` to hide them.

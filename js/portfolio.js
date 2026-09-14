@@ -49,7 +49,7 @@
     card.id = `project-${p.id}`;
     card.setAttribute("aria-haspopup", "dialog");
     card.innerHTML = `
-      <div class="thumb">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy">` : window.placeholderThumb(p, i)}</div>
+      <div class="thumb" style="position:relative">${(() => { const first = (p.images || []).map((x) => (typeof x === "string" ? x : x && x.src)).find(Boolean); const cover = p.image || first; return cover ? `<img src="${esc(cover)}" alt="${esc(p.title)}" loading="lazy">` : window.placeholderThumb(p, i); })()}${p.model ? '<span class="badge-3d">3D</span>' : ""}</div>
       <div class="body">
         <div class="meta mono"><span>${esc(p.role)}</span><span>${esc(p.period)}</span></div>
         <h3>${esc(p.title)}</h3>
